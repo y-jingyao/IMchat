@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>IM Chat</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="chat-container">
+    <div class="navigation-menu">
+        <button id="nav-chat-btn" class="active">💬</button>
+        <button id="nav-contacts-btn">👥</button>
+        <button id="nav-setting-btn">⚙️</button>
+    </div>
+
+    <div id="chat-view" class="view active">
+        <div class="sidebar chat-sidebar">
+            <div class="current-user-info">
+                <p><strong id="current-nickname"></strong><br><strong id="current-username"></strong></p>
+                <p> <strong id="connection-status">●离线</strong></p>
+            </div>
+            <div class="list-container">
+                <h3>最近聊天</h3>
+                <ul id="recent-chats-list">
+                </ul>
+            </div>
+        </div>
+        <div class="main-chat">
+            <div class="chat-header">
+                <h2 id="chat-with-user">选择一个好友开始聊天</h2>
+            </div>
+            <div class="messages" id="messages-container">
+            </div>
+            <div class="message-input">
+                <textarea id="message-input-box" placeholder="输入消息..." disabled></textarea>
+                <button id="send-button" disabled>发送</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="contacts-view" class="view">
+        <div class="contacts-header">
+            <h2>联系人管理</h2>
+        </div>
+        <div class="contacts-content">
+            <div class="search-container">
+                <input type="text" id="search-user-input" placeholder="搜索用户添加好友...">
+                <button id="search-user-button">搜索</button>
+            </div>
+            <div id="search-results-container">
+            </div>
+
+            <div class="list-container">
+                <h3>好友请求</h3>
+                <ul id="requests-list">
+                </ul>
+            </div>
+
+            <div class="list-container">
+                <h3>好友列表</h3>
+                <ul id="friend-list">
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div id="settings-view" class="view">
+        <div class="settings-header">
+            <h2>账号设置</h2>
+            <div class="setting-user-info">
+                <p><strong id="setting-nickname">昵称：NULL</strong></p>
+                <p><strong id="setting-username">账号：NULL</strong></p>
+                <p><strong id="setting-uid">用户ID：NULL</strong></p>
+                <p><strong id="setting-creatAt">创建时间：NULL</strong></p>
+                <p><strong id="setting-status0">账号状态：NULL</strong></p>
+                <p><strong id="setting-status">●离线</strong> <button class="setting-logout-btu">退出登录</button></p>
+            </div>
+        </div>
+        <button id="setting-mdfNickname">修改昵称</button>
+        <button id="setting-mdfUsername">修改账号</button>
+        <button id="setting-mdfPassword">修改密码</button>
+
+    </div>
+
+
+
+</div>
+<div id="custom-alert-overlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:1000; justify-content:center; align-items:center;">
+    <div id="custom-alert-box" style="background:#fff; padding:20px; border-radius:5px; max-width:400px; text-align:center;">
+        <p id="custom-alert-message">这是一个自定义的提示信息。</p>
+        <button id="custom-alert-ok">确定</button>
+    </div>
+</div>
+<div id="custom-confirm-overlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:1000; justify-content:center; align-items:center;">
+    <div id="custom-confirm-box" style="background:#fff; padding:20px; border-radius:5px; max-width:400px; text-align:center;">
+        <p id="custom-confirm-message">确定要执行此操作吗？</p>
+        <div style="margin-top:20px;">
+            <button id="custom-confirm-ok" style="margin-right:10px;">确定</button>
+            <button id="custom-confirm-cancel">取消</button>
+        </div>
+    </div>
+</div>
+<div id="setting-mdf-overlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:1000; justify-content:center; align-items:center;">
+    <div id="setting-mdf-box" style="background:#fff; padding:20px; border-radius:5px; max-width:400px; text-align:center;">
+        <p id="setting-mdf-message">修改</p>
+        <form id="login-form">
+            <label for="setting-input-data"></label><input type="text" id="setting-input-data" placeholder="" required>
+            <label for="setting-input-password"></label><input type="password" id="setting-input-password" placeholder="密码" required>
+        </form>
+        <div style="margin-top:20px;">
+            <button id="setting-mdf-ok" style="margin-right:10px;">确定</button>
+            <button id="setting-mdf-cancel">取消</button>
+        </div>
+    </div>
+</div>
+<script src="chat.js"></script>
+</body>
+</html>
