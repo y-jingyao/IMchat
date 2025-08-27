@@ -102,10 +102,17 @@ npm start
 应用启动后，你就可以注册新用户并开始使用了！
 
 🖼️ 项目截图
+
+
+
 ![login](./sotp/login.png)
+
 ![register](./sotp/register.png)
+
 ![chat](./sotp/chat.png)
+
 ![contact](./sotp/contact.png)
+
 ![setting](./sotp/setting.png)
 
 
